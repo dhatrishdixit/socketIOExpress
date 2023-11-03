@@ -1,7 +1,7 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
-const socket = io("ws://localhost:3500");
+const socket = io("ws://localhost:4000");
 const activity = document.querySelector('.activity');
 
 
