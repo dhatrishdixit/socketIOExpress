@@ -1,7 +1,8 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
-const socket = io("ws://localhost:3500");
+//const socket = io("ws://localhost:3500");
+const socket = io("https://basicchatroom.onrender.com:3500")
 const activity = document.querySelector('.activity');
 
 
