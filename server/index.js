@@ -21,10 +21,10 @@ io.on('connection',socket=>{
       userName[socket.id] = username ; 
       console.log('user is connected',socket.id,userName[socket.id]);
       //message to all on connection except the user 
-      socket.broadcast.emit('message',`${userName[socket.id]} is ONLINE`)
+      socket.broadcast.emit('message-connect',userName[socket.id])
 
       //message to user on connection 
-      socket.emit('message',`${userName[socket.id]} welcome to chat app`)
+      socket.emit('message-self',userName[socket.id])
       })
    
 
@@ -35,7 +35,7 @@ io.on('connection',socket=>{
       })
       //upon user disconnect 
       socket.on("disconnect",reason=>{
-        socket.broadcast.emit('message',`${userName[socket.id]} has disconnected`)
+        socket.broadcast.emit('message-disconnect',userName[socket.id])
         console.log(`${userName[socket.id]} is disconnected because of reason :${reason}`)
       })
       

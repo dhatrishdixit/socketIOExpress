@@ -46,6 +46,27 @@ socket.on("message",data=>{
     console.log(data);
     recieveHandler(data);
 });
+socket.on("message-self",name=>{
+    window.alert(`welcome to chatAPP ${name}`)
+})
+socket.on("message-connect",(name)=>{
+    const textNode = document.createTextNode(`${name} is online`) ;
+    const li = document.createElement('li');
+    li.style.width="100%";
+    li.style.textAlign="center";
+    li.appendChild(textNode);
+    ul.appendChild(li);
+})
+
+socket.on("message-disconnect",(name)=>{
+    const textNode = document.createTextNode(`${name} is disconnected`) ;
+    const li = document.createElement('li');
+    li.style.width="100%";
+    li.style.textAlign="center";
+    li.appendChild(textNode);
+    ul.appendChild(li);
+})
+
 
 let activityTimer ;
 socket.on('activity',name=>{
